@@ -1,18 +1,48 @@
-## Getting Started
+## Controle de Fluxo - Desafio
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Vamos exercitar todo o conteúdo apresentado no módulo de Controle de Fluxo desenvolvendo o seguinte cenário.
 
-## Folder Structure
+O sistema deverá receber dois parâmetros via terminal que representarão dois números inteiros. Com estes dois números, o programa deverá calcular a quantidade de interações necessárias (usando um loop `for`) e imprimir no console (`System.out.print`) os números incrementados. 
 
-The workspace contains two folders by default, where:
+### Exemplo
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Se você inserir os números 12 e 30, o sistema realizará uma interação (loop `for`) com 18 ocorrências, imprimindo cada número na sequência. A saída será algo como:
+e assim por diante.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+### Regras do Sistema
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+- **Validação dos Parâmetros**: Se o primeiro parâmetro for maior que o segundo, o sistema deverá lançar uma exceção customizada chamada `ParametrosInvalidosException`. A mensagem da exceção será: `"O segundo parâmetro deve ser maior que o primeiro"`.
+- **Estrutura do Projeto**:
+  - Crie o projeto `DesafioControleFluxo`.
+  - Dentro do projeto, crie a classe `Contador.java`, que conterá a lógica do programa.
+  - Crie a classe `ParametrosInvalidosException`, que representará a exceção de negócio do sistema.
 
-## Dependency Management
+### Implementação do Código
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Abaixo está um exemplo de estrutura para o código, com alguns trechos a serem completados onde há `??`:
+
+```java
+public class Contador {
+	public static void main(String[] args) {
+		Scanner terminal = new Scanner(System.in);
+		System.out.println("Digite o primeiro parâmetro");
+		int parametroUm = terminal.??;
+		System.out.println("Digite o segundo parâmetro");
+		int parametroDois = terminal.??;
+		
+		try {
+			//chamando o método contendo a lógica de contagem
+			contar(parametroUm, parametroDois);
+		
+		}catch (? exception) {
+			//imprimir a mensagem: O segundo parâmetro deve ser maior que o primeiro
+		}
+		
+	}
+	static void contar(int parametroUm, int parametroDois ) throws ParametrosInvalidosException {
+		//validar se parametroUm é MAIOR que parametroDois e lançar a exceção
+		
+		int contagem = parametroDois - parametroUm;
+		//realizar o for para imprimir os números com base na variável contagem
+	}
+}
